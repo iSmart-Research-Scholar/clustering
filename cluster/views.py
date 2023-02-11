@@ -25,7 +25,7 @@ def cluster(request):
         title.append(article['title'])
     vectorizer = TfidfVectorizer(stop_words='english')
     X = vectorizer.fit_transform(abstracts)
-    true_k = 5
+    true_k = 3
     model = KMeans(n_clusters=true_k, init='k-means++', max_iter=200, n_init=10)
     model.fit(X)
     labels=model.labels_
